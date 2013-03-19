@@ -1,9 +1,9 @@
 function init(){
    function setLayer() {
        var hash = window.location.hash.substring(1);
-       if (LayerActions[hash]) { //
-          $('.buttons').removeClass('active');
-          $('.buttons.' + hash).addClass('active');
+       if (LayerActions[hash]) {
+          $('.nav li').removeClass('active');
+          $('.buttons.' + hash).parent().addClass('active');
           LayerActions[hash]();
        }
    }
@@ -56,8 +56,8 @@ function init(){
      });
 
    $('.buttons').click(function() {
-      $('.buttons').removeClass('active');
-      $(this).addClass('active');
+      $('.nav li').removeClass('active');
+      $(this).parent().addClass('active');
       $('.nav-collapse').collapse('hide');
       LayerActions[$(this).attr('data-id')]();
    });
